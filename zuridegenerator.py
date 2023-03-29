@@ -31,7 +31,7 @@ with st.form("Ride text generator"):
 
 #exception catching in order not to generate the text before anything works
 try:
-    meeting_spot[0] == 4 #random check to catch index error
+    meeting_spot[0] != 4 #random check to catch index error
     #now we generate the text:
 
     bigtext  = f"""
@@ -52,9 +52,9 @@ Select the ride you prefer, make sure you received the confirmation email, and p
     st.code(bigtext)
 #some warnings it meeting place doesnt work
     if len(meeting_spot) != 1:
-        st.warning("The wrong number of meeting places selected")
+        st.warning("The wrong number of meeting places selected.")
 except IndexError:
-    st.info("Press the submit button")
+    st.info("Press the submit button.")
 
 
 

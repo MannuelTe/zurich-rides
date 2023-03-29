@@ -22,3 +22,6 @@ CREDENTIAL_PATH = PROJECT_DIR + '/service_account.json'
 # Spreadsheet
 ID_SPREADSHEET = 'Googlespreadsheet ID from URL'
 ```
+ ## check out the text generator on zuridesgenerator.streamlit.app
+
+ in the future i want to find a way to scrape the stats from the page but right now i dont know how :(())
