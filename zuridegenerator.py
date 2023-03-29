@@ -3,8 +3,12 @@ import calendar
 import pandas as pd
 import streamlit as st
 
+#preliminary list of all meeting points available
 meeting_places = ["Frohburg-/Letzistrasse", "Thiwa Cafe @ Triemli", "Oil! Tankstelle Fronwaldstrasse", "Fork & Bottle @ Sihlcity"]
+
+#title of the page
 st.title("ride generator for zürides.ch")
+#form to generate the ride
 with st.form("Ride text generator"):
     d = st.date_input(
         "When\'s your ride",
@@ -25,10 +29,11 @@ with st.form("Ride text generator"):
     name2 = st.text_input("Name of the second ride leader (leave blank if not appliable)")
     submitted = st.form_submit_button("Generate Template")
 
-#print( d.day_name(), d.month_name())
-
+#exception catching in order not to generate the text before anything works
 try:
-    meeting_spot[0]
+    meeting_spot[0] == 4 #random check to catch index error
+    #now we generate the text:
+
     bigtext  = f"""
 -- {d.strftime('%A')}, {d.day} {calendar.month_name[d.month]}  --
 
@@ -43,8 +48,9 @@ Select the ride you prefer, make sure you received the confirmation email, and p
 {desc} We will ride together in a group at a brisk but comfortable pace on the flats. On the hills, you choose your speed and we regroup on the top. 
 
 """
+#end of text + showing the text on page
     st.code(bigtext)
-
+#some warnings it meeting place doesnt work
     if len(meeting_spot) != 1:
         st.warning("The wrong number of meeting places selected")
 except IndexError:
